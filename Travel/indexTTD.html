@@ -1,7 +1,31 @@
+<!DOCTYPE>
+
 <HTML>
 <head>
+	<script src="jquery-1.6.2.min.js" type="text/javascript"></script> 
+	<script src="jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+ 	<title>Travel Guide</title>
+	<script>
+	$(document).ready(function() {
+		$( "#submitButton" ).click(function() {
+		
+			$.ajax({
+				url: 'AttractionsSelect.php', 
+				data: {searchDestination: $("#searchDestination").val(), searchCategory: $("#searchCategory").val()},
+				success: function(data){
+					$('#searchAttractionsresult').html(data);	
+				
+				}
+			});
+		});
+		
+	});
+	</script>
+</head>
+<link rel = "stylesheet" type = "text/css" href = "indexcss.css"/>
+<body>
 	<h4 align = "center" id="titleName"> Travel Guide </h4>
-	<title> Travel Guide </title>
+
 	<a href="login.html">Log In / Sign up Here</a>
 	<a href="settings.php"> My Account </a>
 
@@ -30,30 +54,16 @@
 	</nav>
 	</div>
 
-<<<<<<< HEAD
-<link rel = "stylesheet" type = "text/css" href = "indexcss.css"/>
-<body>
-	<form action = "index.html">
-	Destination: <br/>
-	<input type = "text" name = "destination"> <br/>
+	Destination*: <br/>
+	<input id = "searchDestination" type = "text" name = "travelTo"> <br/>
 
-	Type: (Choose from outdoors, shopping, historic, sightseeing) <br/>
-	<input type = "text" name = "type"> <br/>
+	Type (Choose from Food, Tour, Sightseeing, Historic, Outdoors, and Shopping): <br/>
+	<input id="searchCategory" type = "text" name = "travelFrom"> <br/>
 
-	<input type="submit" value = "Submit"> 
-=======
-		Destination*: <br/>
-		<input type = "text" id="searchDestInput"> <br/>
+	* = required <br/>
+	<input id = "submitButton" type="submit" value = "Submit"> 
 
-		Category (Choose from Food, Tour, Sightseeing, Outdoors, Shopping, or Historic): <br/>
-		<input type = "text" id = "searchCatInput"> <br/>
-		* = required <br/>
-		<input id = "submitButton" type="submit" value = "Submit"> 
->>>>>>> 6a60fb7a00e9cf75ee45d932b87389c8fef22a3a
-
-</form>
+	<div id="searchAttractionsresult"></div>
 
 </body>
-	</head>
-
 </HTML> 
