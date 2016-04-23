@@ -2,6 +2,7 @@
 <head>
 	<h4 align = "center" id="titleName"> Travel Guide </h4>
 	<title> Travel Guide </title>
+
 <div id="navbar">
 	<nav>
   	  <ul>
@@ -28,19 +29,19 @@
 	</div>
 <link rel = "stylesheet" type = "text/css" href = "indexcss.css"/>
 <body>
-<div class="login-page">
+
+<div id="login-page">
 <div class="form">
-<h2 align="center"> Log-In </h2>
-<form class="login-form" name = "login" method = "POST" action="login.php">
-	<input type = "text" name = "username" placeholder="username"> 
-	<input type = "text" name = "password" placeholder="password"> 
-	<input id="submitButton" type="submit" name = "login-submit" value = "Submit">
-	<p class="message">Not registered? <a href="signup.html">Create an account</a></p>
+<h2 align="center"> Sign-Up </h2>
+<form  class="login-form" name = "signup" method = "POST" action="login.php">
+	<input type = "text" name = "email" placeholder = "email"> <br/>
+	<input type = "text" name = "username" placeholder = "username"> <br/>
+	<input type = "text" name = "password" placeholder = "password"> <br/>
+	<input type="submit" name = "signup-submit" value = "Submit" id="submitButton">
+	<p class="message">Already registered? <a href="login.html">Sign In</a></p>
 </form>
 </div>
 </div>
-
-
 	</body>
 </head>
 

@@ -46,24 +46,40 @@ if (isset($_SESSION["started"])) {
 	<body>
 <?php
 
-if($user != "admin") {
-	echo "Feedback" . "<br/>";
-	echo "<form name=\"feedback\" method=\"POST\" action=\"indexFeedback.php\">";
+if($user != "admin") { //display feedback form if user is not admin
+	echo "<div id=\"form-main\">";
+	
+	echo "<form class=\"form\" name=\"feedback\" method=\"POST\" action=\"indexFeedback.php\">";
+	echo "<h2 align=\"center\"> Feedback</h2>";
+	//USERNAME
+	echo "<p class=\"name\">";
+	echo "<input name=\"username\" type=\"text\" placeholder=\"Username\" id=\"name\" />";
+	
+	//SUBJECT
+	echo "<p class=\"email\">";
+	//echo "<input type=\"text\" name=\"subject\">" . "<br/>" . "</p>";	
+	echo "<input name=\"subject\" type=\"text\" id=\"email\" placeholder=\"Subject\" />";
 
-	echo "Username" . "<br/>";
-	echo "<input type=\"text\" name=\"username\">" . "<br/>";
+	//COMMENTS
+	echo "<p class=\"text\">";
+	echo "<textarea name=\"feedback\" rows=\"5\" cols=\"40\" id=\"comment\" placeholder=\"Comment\"></textarea>";
+	//echo "<textarea name=\"feedback\" rows=\"5\" cols=\"40\"> </textarea>" . "<br/>";
+	echo "</p>";
 
-	echo "Subject" . "<br/>";
-	echo "<input type=\"text\" name=\"subject\">" . "<br/>";	
+	//SUBMIT
+	echo "<div class=\"submit\">";
+	echo "<input type=\"submit\" name=\"feedback-submit\" value=\"Submit\" id=\"submitButton\">" . "<br/>";
+	echo "<div class=\"ease\"></div>";
 
-	echo "Comments" . "<br/>";
-	echo "<textarea name=\"feedback\" rows=\"5\" cols=\"40\"> </textarea>" . "<br/>";
-	echo "<br/>";
-
-	echo "<input type=\"submit\" name=\"feedback-submit\" value=\"Submit\">" . "<br/>";
 	echo "</form>";
+	echo "</div>"; //close <div> form-main
+
 } else {
 	echo "The feedback of all the users are displayed here.";
+
+	echo "<form name=\"download\" method=\"POST\" action=\"downloadxml.php\">";
+	echo "<input type=\"submit\" name=\"download-feedback\" value=\"Download as XML\">" . "<br/>";
+	echo "</form>";
 
 	$query = "SELECT * FROM feedback";
 	$result = $connected->query($query);
@@ -81,6 +97,7 @@ if($user != "admin") {
     		echo "</tr>";
     	}
     }
+    echo "</table>";
 
 }
 
@@ -94,10 +111,10 @@ if (!empty($_POST['feedback-submit'])) {
     $subject = mysql_escape_string($subject);
     $feedback = mysql_escape_string($feedback);
 
-    $query = "INSERT INTO feedback VALUES ('$username', '$subject', '$feedback')"; 
-	$result = $connected->query($query); 
+    $query = "INSERT INTO feedback VALUES ('id_feedback', '$username', '$subject', '$feedback')"; 
+	$result = $connected->query($query) or die ("Invalid insert " . $connected->error); 
 
-	echo "You have successfully submitted feedback";
+	echo "Thanks for submitting feedback!";
 } 
 	
 ?>
