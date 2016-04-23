@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 
@@ -28,7 +29,14 @@
 	<h4 align = "center" id="titleName"> Travel Guide </h4>
 
 	<a href="login.html">Log In / Sign up Here</a>
+=======
+<HTML>
+<head>
+	<h4 align = "center" id="titleName"> Travel Guide </h4>
+	<title> Travel Guide </title>
+	<a href="login.html">Log In / Sign up Here</a>
 	<a href="settings.php"> My Account </a>
+>>>>>>> 38972b53e892da50d59db034458bd3e9ca7dc746
 
 	<div id="navbar">
 	<nav>
@@ -55,6 +63,7 @@
 	</nav>
 	</div>
 
+<<<<<<< HEAD
 		Destination: <br/>
 		<input type = "text" id="searchDestInput"> <br/>
 
@@ -62,9 +71,25 @@
 		<input type = "text" id = "searchCatInput"> <br/>
 
 		<input id = "submitButton" type="submit" value = "Submit"> 
+=======
+<link rel = "stylesheet" type = "text/css" href = "indexcss.css"/>
+<body>
+	<form action = "index.html">
+	Destination: <br/>
+	<input type = "text" name = "destination"> <br/>
 
-	<div id="searchDestresult"></div>
+	Type: (Choose from outdoors, shopping, historic, sightseeing) <br/>
+	<input type = "text" name = "type"> <br/>
+>>>>>>> 38972b53e892da50d59db034458bd3e9ca7dc746
+
+
+	<div id="searchDestresult">Destination Search Result</div>
 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+	</head>
 
+</HTML> 
+>>>>>>> 38972b53e892da50d59db034458bd3e9ca7dc746
