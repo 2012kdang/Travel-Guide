@@ -1,0 +1,57 @@
+<HTML>
+<head>
+	<h4 align = "center" id="titleName"> Travel Guide </h4>
+	<title> Travel Guide </title>
+
+	<a href="login.html">Log In / Sign up Here</a>
+
+	<div id="navbar">
+	<nav>
+  	  <ul>
+	    <li>
+	      <a href="index.html">Flights</a>
+	    </li>
+	    <li>
+	      <a href="indexHotel.html">Hotels</a>
+	    </li>
+	    <li>
+	      <a href="indexCruise.html">Cruises</a>
+	    </li>
+	    <li>
+	      <a href="indexLocal.html">Local Transportation</a>
+	    </li>
+	    <li>
+	      <a href="indexTTD.html">Things To Do</a>
+	    </li>
+	    <li>
+	      <a href="indexFeedback.html">Feedback</a>
+	    </li>
+	  </ul>
+	</nav>
+	</div>
+	<link rel = "stylesheet" type = "text/css" href = "indexcss.css"/>
+	<body>
+<?php
+	echo "Feedback" . "<br/>";
+	echo "<form name=\"feedback\" method=\"POST\" action=\"feedback.php\">";
+
+	echo "Username" . "<br/>";
+	echo "<input name=\"text\" name=\"username\">" . "<br/>";
+
+	echo "Subject" . "<br/>";
+	echo "<input name=\"text\" name=\"subject\">" . "<br/>";	
+
+	echo "Comments" . "<br/>";
+	echo "<textarea name=\"feedback\" rows=\"5\" cols=\"40\"> </textarea>" . "<br/>";
+	echo "<br/>";
+
+	echo "<input name=\"submit\" name=\"feedback-submit\" value=\"Submit\">" . "<br/>";
+	echo "</form>";
+
+
+?>
+
+</body>
+</head>
+
+</HTML> 

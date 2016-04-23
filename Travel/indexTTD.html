@@ -1,8 +1,10 @@
-<html>
+<HTML>
 <head>
 	<h4 align = "center" id="titleName"> Travel Guide </h4>
 	<title> Travel Guide </title>
-</head>
+	<a href="login.html">Log In / Sign up Here</a>
+	<a href="settings.php"> My Account </a>
+
 	<div id="navbar">
 	<nav>
   	  <ul>
@@ -21,24 +23,27 @@
 	    <li>
 	      <a href="indexTTD.html">Things To Do</a>
 	    </li>
+	    <li>
+	      <a href="indexFeedback.php">Feedback</a>
+	    </li>
 	  </ul>
 	</nav>
 	</div>
 
-
 <link rel = "stylesheet" type = "text/css" href = "indexcss.css"/>
 <body>
-	<form action = "AttractionsSelect.php" method="POST">
+	<form action = "index.html">
 	Destination: <br/>
 	<input type = "text" name = "destination"> <br/>
 
-	Category: (Choose from outdoors, shopping, historic, sightseeing, tour, food) <br/>
-	<input type = "text" name = "category"> <br/>
+	Type: (Choose from outdoors, shopping, historic, sightseeing) <br/>
+	<input type = "text" name = "type"> <br/>
 
 	<input type="submit" value = "Submit"> 
 
 </form>
 
 </body>
+	</head>
 
-</html> 
+</HTML> 

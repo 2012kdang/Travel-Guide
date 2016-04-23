@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'library.php';
 
 $connected = mysqli_connect($SERVER, $USERNAME, $PASSWORD, $DATABASE); 
@@ -25,12 +27,12 @@ if (!empty($_POST['signup-submit'])) {
     if($emailFlag == true) {
     	echo "This email is already in use";
     } else {
-    	$username = mysql_escape_string($username);
+      $username = mysql_escape_string($username);
     	$password = mysql_escape_string($password);
     	$email = mysql_escape_string($email);
     	$query = "INSERT INTO users VALUES ('$username', '$password', '$email')"; 
-		$result = $connected->query($query); 
-		echo "You have successfully created an account";
+		  $result = $connected->query($query); 
+		  echo "You have successfully created an account";
     }
 
 	echo $email;
@@ -38,7 +40,7 @@ if (!empty($_POST['signup-submit'])) {
 }
 
 if (!empty($_POST['login-submit'])) {
-   	$username = $_POST['username'];
+  $username = $_POST['username'];
 	$password = $_POST['password'];
 
 	$query = "SELECT * FROM users";
@@ -56,6 +58,12 @@ if (!empty($_POST['login-submit'])) {
 
     if ($login == true) {
     	echo "congrats u logged in";
+      //differentiate the admin
+      $_SESSION['started'] = $username; //$username??
+      if ($username == "admin") {
+        $_SESSION['started'] = "admin";
+        echo "session set";
+      }
     } else {
     	echo "try again";
     }
