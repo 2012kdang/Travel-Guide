@@ -45,7 +45,7 @@ $emailFlag = false; ?>
 <form  class="login-form" name = "signup" method = "POST" action="signup.php">
 	<input type = "text" name = "email" placeholder = "email"> <br/>
 	<input type = "text" name = "username" placeholder = "username"> <br/>
-	<input type = "text" name = "password" placeholder = "password"> <br/>
+	<input type = "password" name = "password" placeholder = "password"> <br/>
 	<input type="submit" name = "signup-submit" value = "Submit" id="submitButton">
 	<p class="message">Already registered? <a href="login.php">Sign In</a></p>
 </form>

@@ -43,7 +43,7 @@ $emailFlag = false; ?>
 <h2 align="center"> Log-In </h2>
 <form class="login-form" name = "login" method = "POST" action="login.php">
   <input type = "text" name = "username" placeholder="username"> 
-  <input type = "text" name = "password" placeholder="password"> 
+  <input type = "password" name = "password" placeholder="password"> 
   <input id="submitButton" type="submit" name = "login-submit" value = "Submit">
   <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
 </form>
