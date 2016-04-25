@@ -76,6 +76,7 @@ if (!empty($_POST['signup-submit'])) {
     } else {
       $username = mysql_escape_string($username);
     	$password = mysql_escape_string($password);
+    	$password = hash('sha256', rtrim($password)); 
     	$email = mysql_escape_string($email);
     	$query = "INSERT INTO users VALUES ('$username', '$password', '$email')"; 
 		  $result = $connected->query($query); 

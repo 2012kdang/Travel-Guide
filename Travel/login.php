@@ -73,6 +73,7 @@ if (!empty($_POST['signup-submit'])) {
     } else {
       $username = mysql_escape_string($username);
     	$password = mysql_escape_string($password);
+      $password = hash('sha256', rtrim($password));
     	$email = mysql_escape_string($email);
     	$query = "INSERT INTO users VALUES ('$username', '$password', '$email')"; 
 		  $result = $connected->query($query); 
@@ -86,6 +87,7 @@ if (!empty($_POST['signup-submit'])) {
 if (!empty($_POST['login-submit'])) {
   $username = $_POST['username'];
 	$password = $_POST['password'];
+  $password = hash('sha256', rtrim($password));
 
 	$query = "SELECT * FROM users";
 	$result = $connected->query($query);
