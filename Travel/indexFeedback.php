@@ -15,7 +15,7 @@ if (isset($_SESSION["started"])) {
 	<h4 align = "center" id="titleName"> Travel Guide </h4>
 	<title> Travel Guide </title>
 
-	<a href="login.html">Log In / Sign up Here</a>
+	<a href="login.php">Log In / Sign up Here</a>
 	<a href="settings.php"> My Account </a>
 
 	<div id="navbar">

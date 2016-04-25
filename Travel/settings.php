@@ -15,7 +15,7 @@ if (isset($_SESSION["started"])) {
 	<h4 align = "center" id="titleName"> Travel Guide </h4>
 	<title> Travel Guide </title>
 
-	<a href="login.html">Log In / Sign up Here</a>
+	<a href="login.php">Log In / Sign up Here</a>
 
 	<div id="navbar">
 	<nav>
@@ -46,27 +46,22 @@ if (isset($_SESSION["started"])) {
 
 <?php
 if ($user != "") {
-	echo "Welcome " . $user . "!" . "<br/>";
-	echo "Settings" . "<br/>" . "<br/>";
+	echo "<div class=\"login-page\">";
 
-	echo "Change your username" . "<br/>";
-	echo "<form name=\"settings1\" method=\"POST\" action=\"settings.php\">";
-	echo "<input type=\"text\" name=\"username\">" . "<br/>";
-	echo "<input type=\"submit\" name=\"username-submit\" value=\"Submit\">" . "<br/>";
-	echo "</form>";
+	echo "<form class =\"form\" method=\"POST\" action=\"settings.php\">";
+	echo "<h2> Welcome " . $user . "! </h2>" ;
+	echo "Change your username";
+	echo "<input type=\"text\" name=\"username\" placeholder=\"new username\">";
 
 	echo "Change your password" . "<br/>";
-	echo "New Password";
-	echo "<form name=\"settings2\" method=\"POST\" action=\"settings.php\">";
-	echo "<input type=\"text\" name=\"password\">" . "<br/>";
-	echo "<input type=\"submit\" name=\"password-submit\" value=\"Submit\">" . "<br/>";
-	echo "</form>";
+	echo "<input type=\"text\" name=\"password\" placeholder=\"new password\">";
+	echo "<input type=\"submit\" name=\"password-submit\" value=\"Submit\" id=\"submitButton\">";
+	//echo "</form>";
 
-
-	echo "Delete your account" . "<br/>";
-	echo "<form name=\"settings3\" method=\"POST\" action=\"settings.php\">";
-	echo "<input type=\"submit\" name=\"delete-submit\" value=\"Delete\">" . "<br/>";
+	//echo "<form class =\"form\" method=\"POST\" action=\"settings.php\">";
+	echo "<input type=\"submit\" name=\"delete-submit\" value=\"Delete Your Account\" id=\"deleteButton\">";
 	echo "</form>";
+	echo "</div>"; //close <div login-page>
 
 	$user = mysql_escape_string($user);
 

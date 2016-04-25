@@ -5,7 +5,51 @@ include 'library.php';
 
 $connected = mysqli_connect($SERVER, $USERNAME, $PASSWORD, $DATABASE); 
 $login = false;
-$emailFlag = false;
+$emailFlag = false; ?>
+
+<HTML>
+<head>
+  <h4 align = "center" id="titleName"> Travel Guide </h4>
+  <title> Travel Guide </title>
+  <a href="settings.php"> My Account </a>
+<div id="navbar">
+  <nav>
+      <ul>
+      <li>
+        <a href="index.html">Flights</a>
+      </li>
+      <li>
+        <a href="indexHotel.html">Hotels</a>
+      </li>
+      <li>
+        <a href="indexCruise.html">Cruises</a>
+      </li>
+      <li>
+        <a href="indexLocal.html">Local Transportation</a>
+      </li>
+      <li>
+        <a href="indexTTD.html">Things To Do</a>
+      </li>
+      <li>
+        <a href="indexFeedback.php">Feedback</a>
+      </li>
+    </ul>
+  </nav>
+  </div>
+<link rel = "stylesheet" type = "text/css" href = "indexcss.css"/>
+<body>
+<div class="login-page">
+<div class="form">
+<h2 align="center"> Log-In </h2>
+<form class="login-form" name = "login" method = "POST" action="login.php">
+  <input type = "text" name = "username" placeholder="username"> 
+  <input type = "text" name = "password" placeholder="password"> 
+  <input id="submitButton" type="submit" name = "login-submit" value = "Submit">
+  <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
+</form>
+</div>
+
+<?php
 
 if (!empty($_POST['signup-submit'])) {
 	$email = $_POST['email'];
