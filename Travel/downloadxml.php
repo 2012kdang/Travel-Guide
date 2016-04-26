@@ -31,7 +31,7 @@ $result = $connected->query($query);
     }
     $string .= "</form>";
     echo "</table>";
-
+    
     echo "<table style=\"width:100%\">";
     $string .= "<usersList>";
     echo "<tr>";
@@ -55,42 +55,36 @@ $result = $connected->query($query);
     $string .= "</usersList>";
     echo "</table>";
     
-    echo "<table stype=\"width:100%\">";
-    $string .= "<attractionsList>";
+    echo "<table style=\"width:100%\">";
+    $string .= "<restaurantList>";
     echo "<tr>";
-    echo "<td>Type</td> <td>Price</td> <td>Name</td> <td>Street</td> <td>City</td> <td>Country</td>";
+    echo "<td>Name</td> <td>Cuisine</td> <td>Price</td> <td>Rating</td> <td>country</td>";
     echo "</tr>";
-
-    $query = "SELECT * FROM attractions";
+    $query = "SELECT name, cuisine, price, rating, country FROM restaurants";
     $result = $connected->query($query);
     if ($result->num_rows > 0) { //if # rows > 0
         while($row = $result->fetch_assoc()) {
-            $string .= "<attraction>";
+            $string .= "<place>";
             echo "<tr>";
-            echo "<td>" . $row['type'] . "</td>";
-            echo "<td>" . $row['price'] . "</td>";
             echo "<td>" . $row['name'] . "</td>";
-            echo "<td>" . $row['street'] . "</td>";
-            echo "<td>" . $row['city'] . "</td>";
+            echo "<td>" . $row['cuisine'] . "</td>";
+            echo "<td>" . $row['price'] . "</td>";
+            echo "<td>" . $row['rating'] . "</td>";
             echo "<td>" . $row['country'] . "</td>";
-            //echo "<td>" . $row['state'] . "</td>";
             echo "</tr>";
-            $string .= "<type>" . $row['type'] . "</type>";
-            $string .= "<price>" . $row['price'] . "</price>";
             $string .= "<name>" . $row['name'] . "</name>";
-            $string .= "<street>" . $row['street'] . "</street>";
-            $string .= "<city>" . $row['city'] . "</city>";
+            $string .= "<cuisine>" . $row['cuisine'] . "</cuisine>";
+            $string .= "<price>" . $row['price'] . "</price>";
+            $string .= "<rating>" . $row['rating'] . "</rating>";
             $string .= "<country>" . $row['country'] . "</country>";
-            //$string .= "<state>" . $row['state'] . "</state>";
-            $string .= "</attraction>";
+            $string .= "</place>";
         }
     }
-
-    $string .= "</attractionsList>";
-    echo "</table>"; 
-
+    
+    $string .= "</restaurantList>";
+    echo "</table>";
+    
     $string .= "</info>";
-
     $xml = new SimpleXMLElement($string);
 
     ob_clean(); 
