@@ -8,7 +8,7 @@
 	$stringDest = $_GET['searchDestination'];
 	$stringType = $_GET['searchCategory'];
 
-	echo "<table border=1><th>Category</th><th>Name</th><th>Type</th><th>Price</th><th>Location</th>\n";
+	echo "<table><th>Category</th><th>Name</th><th>Type</th><th>Price</th><th>Location</th>\n";
 
 	if($stringType==NULL){
 		if($stmt->prepare("select * from attractions where city like ? OR country like ? OR state like ?") or die(mysqli_error($db))) {

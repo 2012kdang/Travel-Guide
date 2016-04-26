@@ -347,6 +347,7 @@ button {
 /* table */
 th, td {
     border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
 /*to move settings to the right*/

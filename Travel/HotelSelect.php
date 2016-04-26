@@ -7,7 +7,7 @@
 	$stringLoc = $_GET['location'];
 	$stringRating = $_GET['rating'];
 
-	echo "<table border=1><th>Name</th><th>Rating</th><th>Address</th><th>Phone Number</th><th>Price Per Night</th>\n";
+	echo "<table><th>Name</th><th>Rating</th><th>Address</th><th>Phone Number</th><th>Price Per Night</th>\n";
 
 	if($stringRating == NULL){
 		if($stmt->prepare("select * from hotels where (city like ? OR state like ? or country like ?) ORDER BY name") or die(mysqli_error($db))) {

@@ -47,6 +47,7 @@ $emailFlag = false; ?>
   <input id="submitButton" type="submit" name = "login-submit" value = "Submit">
   <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
 </form>
+
 </div>
 
 <?php
@@ -69,15 +70,17 @@ if (!empty($_POST['login-submit'])) {
       }
 
     if ($login == true) {
-      echo "congrats u logged in";
+      $message = "You have successfuly logged in.";
       //differentiate the admin
       $_SESSION['started'] = $username; 
       if ($username == "admin") {
         $_SESSION['started'] = "admin";
       }
     } else {
-      echo "try again";
+      $message = "Your username or password was incorrect.";
     }
+
+    echo "<script type='text/javascript'>alert('$message');</script>";
 
 }
 ?>

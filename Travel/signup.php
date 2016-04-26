@@ -10,6 +10,11 @@ $emailFlag = false; ?>
 <head>
 	<h4 align = "center" id="titleName"> Travel Guide </h4>
 	<title> Travel Guide </title>
+	<a href="login.php"> Login</a>
+	<a href="settings.php"> My Account </a>
+	<div class = "right"> 
+		<a href="signout.php"> Log Out </a>
+	</div>
 	
 <div id="navbar">
 	<nav>
@@ -71,18 +76,21 @@ if (!empty($_POST['signup-submit'])) {
         echo "There are 0 results";
     }
     if($emailFlag == true) {
-    	echo "This email is already in use";
+    	$message = "This email is already in use";
     } else {
-      $username = mysql_escape_string($username);
+      	$username = mysql_escape_string($username);
     	$password = mysql_escape_string($password);
     	$password = hash('sha256', rtrim($password)); 
     	$email = mysql_escape_string($email);
-    	$query = "INSERT INTO users VALUES ('$username', '$password', '$email')"; 
-		$result = $connected->query($query); 
-		echo "You have successfully created an account";
+    	$feedback = '0';
+    	$feedback = mysql_escape_string($feedback);
+    	$query = "INSERT INTO users VALUES ('$username', '$password', '$email', '$feedback')"; 
+		$result = $connected->query($query) or die ("Invalid insert " . $connected->error); 
+		$message = "You have successfully created an account. Please log in now.";
+		//$message = $result;
     }
 
-	echo $email;
+	echo "<script type='text/javascript'>alert('$message');</script>";
 	
 } 
 ?>

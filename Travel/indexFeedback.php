@@ -117,7 +117,8 @@ if (!empty($_POST['feedback-submit'])) {
     $query = "INSERT INTO feedback VALUES ('id_feedback', '$username', '$subject', '$feedback')"; 
 	$result = $connected->query($query) or die ("Invalid insert " . $connected->error); 
 
-	echo "Thanks for submitting feedback!";
+	$message = "Thanks for submitting feedback!";
+	echo "<script type='text/javascript'>alert('$message');</script>";
 } 
 	
 ?>

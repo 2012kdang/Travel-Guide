@@ -7,7 +7,7 @@
 	$stringDest = $_GET['destination'];
 	$stringDepartMonth = $_GET['departMonth'];
 
-	echo "<table border=1><th>Company</th><th>Going To</th><th>Departing From</th><th>Departing Date</th><th>Returning Date</th><th>Price</th><th>Duration</th>\n";
+	echo "<table><th>Company</th><th>Going To</th><th>Departing From</th><th>Departing Date</th><th>Returning Date</th><th>Price</th><th>Duration</th>\n";
 
 	if($stringDepartMonth == NULL){
 		if($stmt->prepare("select * from cruises where (destination_city like ? OR destination_state like ? OR destination_country like ?) ORDER BY company") or die(mysqli_error($db))) {

@@ -10,7 +10,7 @@
 	$stringReturnDate = $_GET['returnDate'];
 	// Form the SQL query (a SELECT query)
 
-	echo "<table border=1><th>Airline</th><th>Flying From</th><th>Flying To</th><th>Departing Information</th><th>Returning Information</th><th>Price</th><th>Duration</th>\n";
+	echo "<table><th>Airline</th><th>Flying From</th><th>Flying To</th><th>Departing Information</th><th>Returning Information</th><th>Price</th><th>Duration</th>\n";
 
 	if($stringDepartDate == NULL && $stringReturnDate == NULL){
 		if($stmt->prepare("select * from plane_tickets where (destination_city like ? OR destination_state like ? OR destination_country like ?) AND (departing_city like ? OR departing_state like ? OR departing_country like ?) ORDER by airline") or die(mysqli_error($db))) {

@@ -8,7 +8,7 @@
 	$stringFrom = $_GET['travelFrom'];
 	$stringType = $_GET['type'];
 
-	echo "<table border=1><th>Category</th><th>Travel To</th><th>Travel From</th><th>Type</th><th>Price</th>\n";
+	echo "<table><th>Category</th><th>Travel To</th><th>Travel From</th><th>Type</th><th>Price</th>\n";
 
 	if($stringType == NULL){
 		if($stmt->prepare("select * from public_trans where (destination_city like ? OR destination_state like ? OR destination_country like ?) AND (departing_city like ? OR departing_state like ? OR departing_country like ?) ORDER BY type") or die(mysqli_error($db))) {
