@@ -27,6 +27,9 @@
 	<h4 align = "center" id="titleName"> Travel Guide </h4>
 	<a href="login.php">Log In / Sign up Here</a>
 	<a href="settings.php"> My Account </a>
+	<div class = "right"> 
+		<a href="signout.php"> Log Out </a>
+	</div>
 
 	<div id="navbar">
 	<nav>
@@ -53,19 +56,43 @@
 	</nav>
 	</div>
 
-	Traveling To*: <br/>
-	<input id = "travelTo" type = "text" name = "travelTo"> <br/>
+	<section class="flight-finder">
+    	<div class="flight-finder-wrapper">
+    	<h2>Search Local Transportation</h2>
+    		<div class="flight-finder-form">
+    			<div class="form-item">
+					<label> Departure City*: </label>
+					<input id = "travelTo" type = "text" name = "travelTo"> 
+				</div>
 
-	Traveling From*: <br/>
-	<input id="travelFrom" type = "text" name = "travelFrom"> <br/>
+				<div class="form-item">
+					<label> Arrival City*: </label>
+					<input id="travelFrom" type = "text" name = "travelFrom"> 
+				</div>
 
-	Type: (Choose from Car Rental, Bus, Train, or Metro) <br/>
-	<input id = "type" type = "text" name = "type"> <br/>
+				<div class="form-item">
+					<label> Type: (Choose from Car Rental, Bus, Train, or Metro) </label>
+					<!-- <input id = "type" type = "text" name = "type"> -->
+					<select id="type" name ="type">
+							<option value="Car Rental" selected>Car Rental</option>
+              				<option value="Bus">Bus</option>
+              				<option value="Train">Train</option>
+              				<option value="Metro">Metro</option>
+              			</select>
+				</div>
 
-	* = required <br/>
-	<input id = "submitButton" type="submit" value = "Submit"> 
+				<div class="form-item">
+					<label> * = required </label>
+				</div>
 
-	<div id="searchLocalresult"></div>
+				<div class="form-item">
+					<input id = "submitButton" type="submit" value = "Submit"> 
+				</div>
+
+				<div id="searchLocalresult"></div>
+			</div>
+		</div>
+	</section> 
 
 </body>
 </HTML> 

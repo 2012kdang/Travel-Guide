@@ -1,10 +1,9 @@
 <?php
-session_start();
+//session_start();
 
 include 'library.php';
 
 $connected = mysqli_connect($SERVER, $USERNAME, $PASSWORD, $DATABASE); 
-$login = false;
 $emailFlag = false; ?>
 
 <HTML>
@@ -79,8 +78,8 @@ if (!empty($_POST['signup-submit'])) {
     	$password = hash('sha256', rtrim($password)); 
     	$email = mysql_escape_string($email);
     	$query = "INSERT INTO users VALUES ('$username', '$password', '$email')"; 
-		  $result = $connected->query($query); 
-		  echo "You have successfully created an account";
+		$result = $connected->query($query); 
+		echo "You have successfully created an account";
     }
 
 	echo $email;

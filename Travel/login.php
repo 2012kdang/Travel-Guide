@@ -50,49 +50,15 @@ $emailFlag = false; ?>
 </div>
 
 <?php
-
-if (!empty($_POST['signup-submit'])) {
-	$email = $_POST['email'];
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-
-	$query = "SELECT email FROM users";
-	$result = $connected->query($query);
-
-	if ($result->num_rows > 0) { //if # rows > 0
-        while($row = $result->fetch_assoc()) {
-        	if ($row['email'] == $email) { 
-        		$emailFlag = true; 
-        	}
-        }
-    } else { 
-        echo "There are 0 results";
-    }
-    if($emailFlag == true) {
-    	echo "This email is already in use";
-    } else {
-      $username = mysql_escape_string($username);
-    	$password = mysql_escape_string($password);
-      $password = hash('sha256', rtrim($password));
-    	$email = mysql_escape_string($email);
-    	$query = "INSERT INTO users VALUES ('$username', '$password', '$email')"; 
-		  $result = $connected->query($query); 
-		  echo "You have successfully created an account";
-    }
-
-	echo $email;
-	
-}
-
 if (!empty($_POST['login-submit'])) {
   $username = $_POST['username'];
-	$password = $_POST['password'];
+  $password = $_POST['password'];
   $password = hash('sha256', rtrim($password));
 
-	$query = "SELECT * FROM users";
-	$result = $connected->query($query);
+  $query = "SELECT * FROM users";
+  $result = $connected->query($query);
 
-	if ($result->num_rows > 0) { //if # rows > 0
+  if ($result->num_rows > 0) { //if # rows > 0
          while($row = $result->fetch_assoc()) {
             if ($row['username'] == $username && $row['password'] == $password) { 
                $login = true;
@@ -103,15 +69,14 @@ if (!empty($_POST['login-submit'])) {
       }
 
     if ($login == true) {
-    	echo "congrats u logged in";
+      echo "congrats u logged in";
       //differentiate the admin
-      $_SESSION['started'] = $username; //$username??
+      $_SESSION['started'] = $username; 
       if ($username == "admin") {
         $_SESSION['started'] = "admin";
-        echo "session set";
       }
     } else {
-    	echo "try again";
+      echo "try again";
     }
 
 }

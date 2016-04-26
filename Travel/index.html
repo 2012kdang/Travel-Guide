@@ -27,8 +27,12 @@
 <body>
 	<h4 align = "center" id="titleName"> Travel Guide </h4>
 	
-	<a href="login.php">Log In / Sign up Here</a>
+	<a href="login.php">Log In / Sign up</a>
 	<a href="settings.php"> My Account </a>
+
+	<div class = "right"> 
+		<a href="signout.php"> Log Out </a>
+	</div>
 
 	<div id="navbar">
 	<nav>
@@ -55,20 +59,41 @@
 	</nav>
 	</div>
 
-	Flying From*: <br/>
-	<input id="flyingFrom" type = "text" name = "departing_loc"> <br/>
+	<section class="flight-finder">
+    <div class="flight-finder-wrapper">
+      <h2>Search Flights</h2>
+      <div class="flight-finder-form">
+      	<div class="form-item">
+		<label> Departure City*: </label>
+		<input id="flyingFrom" type = "text" name = "departing_loc"> 
+		</div>
 
-	Flying To*: <br/>
-	<input id="flyingTo" type = "text" name = "destination"> <br/>
+		<div class="form-item">
+		<label> Arrival City*: </label> 
+		<input id="flyingTo" type = "text" name = "destination"> 
+		</div>
 
-	Departing Date (ex: 2016-05-23): <br/>
-	<input id="departDate" type = "text" name = "departing_day"> <br/>
+		<div class="form-item">
+		<label> Departing Date: </label>
+		<input type="date" id ="departDate" name="departing_day" min="2016-01-01" value="2016-07-08">
+		</div>
 
-	Returning Date (ex: 2016-05-23): <br/>
-	<input id="returnDate" type = "text" name = "returning_date"> <br/>
-	* = required <br/>
-	<input id="submitButton" type="submit" value = "Submit"> 
+		<div class="form-item">
+		<label> Returning Date: </label>
+		<input type="date" id="returnDate" name="returning_date" min="2016-01-01">
+		</div>
 
-	<div id="searchFlightresult"></div>
+		<div class="form-item">
+		<label> * = required </label>
+		</div>
+
+		<div class="form-item">
+			<input id="submitButton" type="submit" value = "Submit"> 
+		</div>
+
+		<div id="searchFlightresult"></div>
+</div>
+</div>
+</section>
 </body>
 </HTML> 

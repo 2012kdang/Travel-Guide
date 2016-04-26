@@ -17,6 +17,9 @@ if (isset($_SESSION["started"])) {
 
 	<a href="login.php">Log In / Sign up Here</a>
 	<a href="settings.php"> My Account </a>
+	<div class = "right"> 
+		<a href="signout.php"> Log Out </a>
+	</div>
 
 	<div id="navbar">
 	<nav>

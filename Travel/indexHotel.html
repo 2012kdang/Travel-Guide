@@ -28,6 +28,9 @@
 
 	<a href="login.php">Log In / Sign up Here</a>
 	<a href="settings.php"> My Account </a>
+	<div class = "right"> 
+		<a href="signout.php"> Log Out </a>
+	</div>
 
 	<div id="navbar">
 	<nav>
@@ -54,15 +57,33 @@
 	</nav>
 	</div>
 
-	Location*: <br/>
-	<input id = "location" type = "text" name = "location"> <br/>
+	<section class="flight-finder">
+    	<div class="flight-finder-wrapper">
+    	<h2>Search Hotels</h2>
+    		<div class="flight-finder-form">
+				<div class="form-item">
+					<label> Location*: </label>
+					<input id = "location" type = "text" name = "location"> 
+				</div>
 
-	Rating (1-5): <br/>
-	<input id="rating" type = "text" name = "rating"> <br/>
+				<div class="form-item">
+					<label> Rating (1-5): </label>
+					<input id="rating" type = "text" name = "rating">
+				</div>
 
-	* = required <br/>
-	<input id = "submitButton" type="submit" value = "Submit"> 
-	<div id="searchHotelresult"></div>
+				<div class="form-item">
+					<label> * = required </label>
+				</div>
+
+				<div class="form-item">
+					<input id = "submitButton" type="submit" value = "Submit"> 
+				</div>
+
+				<div id="searchHotelresult"></div>
+
+			</div>
+		</div>
+	</section>
 
 </body>
 </HTML> 

@@ -28,6 +28,9 @@
 
 	<a href="login.php">Log In / Sign up Here</a>
 	<a href="settings.php"> My Account </a>
+	<div class = "right"> 
+		<a href="signout.php"> Log Out </a>
+	</div>
 
 	<div id="navbar">
 	<nav>
@@ -54,16 +57,39 @@
 	</nav>
 	</div>
 
-	Destination*: <br/>
-	<input id = "searchDestination" type = "text" name = "travelTo"> <br/>
+	<section class="flight-finder">
+    	<div class="flight-finder-wrapper">
+    	<h2>Search for Things to Do</h2>
+    		<div class="flight-finder-form">
+    			<div class="form-item">
+					<label> Destination*: </label>
+					<input id = "searchDestination" type = "text" name = "travelTo"> 
+				</div>
 
-	Type (Choose from Food, Tour, Sightseeing, Historic, Outdoors, and Shopping): <br/>
-	<input id="searchCategory" type = "text" name = "travelFrom"> <br/>
+				<div class="form-item">
+				<label> Type (Choose from Food, Tour, Sightseeing, Historic, Outdoors, and Shopping): </label>
+					<!-- <input id="searchCategory" type = "text" name = "travelFrom"> <br/> -->
+						<select id="searchCategory" name ="travelFrom">
+							<option value="Food" selected>Food</option>
+              				<option value="Tour">Tour</option>
+              				<option value="Sightseeing">Sightseeing</option>
+              				<option value="Outdoors">Outdoors</option>
+              				<option value="Shopping">Shopping</option>
+              			</select>
+				</div>
 
-	* = required <br/>
-	<input id = "submitButton" type="submit" value = "Submit"> 
+				<div class="form-item">
+					<label> * = required </label>
+				</div>
 
-	<div id="searchAttractionsresult"></div>
+				<div class="form-item">
+					<input id = "submitButton" type="submit" value = "Submit"> 
+				</div>
+
+				<div id="searchAttractionsresult"></div>
+			</div>
+		</div>
+	</section>
 
 </body>
 </HTML> 

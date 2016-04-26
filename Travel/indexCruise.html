@@ -28,6 +28,9 @@
 
 	<a href="login.php">Log In / Sign up Here</a>
 	<a href="settings.php"> My Account </a>
+	<div class = "right"> 
+		<a href="signout.php"> Log Out </a>
+	</div>
 
 	<div id="navbar">
 	<nav>
@@ -54,15 +57,32 @@
 	</nav>
 	</div>
 
-	Destination*: <br/>
-	<input id = "destination" type = "text" name = "destination"> <br/>
+	<section class="flight-finder">
+    	<div class="flight-finder-wrapper">
+    	<h2>Search Local Transportation</h2>
+    		<div class="flight-finder-form">
+    			<div class="form-item">
+					<label>Destination*: </label>
+					<input id = "destination" type = "text" name = "destination"> <br/>
+				</div>
 
-	Departure Month (ex: 03): <br/>
-	<input id = "departMonth" type = "text" name = "date"> <br/>
-	* = required <br/>
-	<input id = "submitButton" type="submit" value = "Submit"> 
+				<div class="form-item">
+					<label> Departure Month (ex: 03): </label>
+					<input id = "departMonth" type = "text" name = "date"> <br/>
+				</div>
 
-	<div id="searchCruiseresult"></div>
+				<div class="form-item">
+					<label>* = required </label>
+				</div>
+
+				<div class="form-item">
+					<input id = "submitButton" type="submit" value = "Submit"> 
+				</div>
+
+				<div id="searchCruiseresult"></div>
+			</div>
+		</div>
+	</section>
 
 </body>
 </HTML> 
