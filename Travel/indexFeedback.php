@@ -106,18 +106,21 @@ if($user != "admin") { //display feedback form if user is not admin
 
 //get contents of form
 if (!empty($_POST['feedback-submit'])) {
-	$username = $_POST['username'];
-	$subject = $_POST['subject'];
-	$feedback = $_POST['feedback'];
+		$username = $_POST['username'];
+		$subject = $_POST['subject'];
+		$feedback = $_POST['feedback'];
+	$message = "You did not fill out one of the fields.";
+	if(!empty($username) && !empty($subject) && !empty($feedback)) {
+		$username = mysql_escape_string($username);
+	    $subject = mysql_escape_string($subject);
+	    $feedback = mysql_escape_string($feedback);
 
-	$username = mysql_escape_string($username);
-    $subject = mysql_escape_string($subject);
-    $feedback = mysql_escape_string($feedback);
+	    $query = "INSERT INTO feedback VALUES ('id_feedback', '$username', '$subject', '$feedback')"; 
+		$result = $connected->query($query) or die ("Invalid insert " . $connected->error); 
 
-    $query = "INSERT INTO feedback VALUES ('id_feedback', '$username', '$subject', '$feedback')"; 
-	$result = $connected->query($query) or die ("Invalid insert " . $connected->error); 
-
-	$message = "Thanks for submitting feedback!";
+		$message = "Thanks for submitting feedback!";
+	}
+	
 	echo "<script type='text/javascript'>alert('$message');</script>";
 } 
 	

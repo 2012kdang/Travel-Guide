@@ -55,32 +55,34 @@ if (!empty($_POST['login-submit'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
   $password = hash('sha256', rtrim($password));
+  $message = "";
+  $message = "You did not fill out an input. Try again.";
+  if(!empty($_POST['username']) && !empty($_POST['password'])) {
+    $query = "SELECT * FROM users";
+    $result = $connected->query($query);
 
-  $query = "SELECT * FROM users";
-  $result = $connected->query($query);
+    if ($result->num_rows > 0) { //if # rows > 0
+           while($row = $result->fetch_assoc()) {
+              if ($row['username'] == $username && $row['password'] == $password) { 
+                 $login = true;
+              }
+           }
+        } else { 
+           echo "There are 0 results";
+        }
 
-  if ($result->num_rows > 0) { //if # rows > 0
-         while($row = $result->fetch_assoc()) {
-            if ($row['username'] == $username && $row['password'] == $password) { 
-               $login = true;
-            }
-         }
-      } else { 
-         echo "There are 0 results";
+      if ($login == true) {
+        $message = "You have successfully logged in.";
+        //differentiate the admin
+        $_SESSION['started'] = $username; 
+        if ($username == "admin") {
+          $_SESSION['started'] = "admin";
+        }
+      } else {
+        $message = "Your username or password was incorrect.";
       }
+  } 
+  echo "<script type='text/javascript'>alert('$message');</script>";
+} 
 
-    if ($login == true) {
-      $message = "You have successfuly logged in.";
-      //differentiate the admin
-      $_SESSION['started'] = $username; 
-      if ($username == "admin") {
-        $_SESSION['started'] = "admin";
-      }
-    } else {
-      $message = "Your username or password was incorrect.";
-    }
-
-    echo "<script type='text/javascript'>alert('$message');</script>";
-
-}
 ?>
