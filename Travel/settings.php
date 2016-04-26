@@ -57,7 +57,7 @@ if ($user != "") {
 	echo "<input type=\"text\" name=\"username\" placeholder=\"new username\">";
 
 	echo "Change your password" . "<br/>";
-	echo "<input type=\"text\" name=\"password\" placeholder=\"new password\">";
+	echo "<input type=\"password\" name=\"password\" placeholder=\"new password\">";
 	echo "<input type=\"submit\" name=\"userpw-submit\" value=\"Submit\" id=\"submitButton\">";
 	//echo "</form>";
 
@@ -78,7 +78,7 @@ if ($user != "") {
 
 		$_SESSION['started'] = $username;
 		$user = $username;
-		echo "Your username has been changed";
+		$message = "Your username has been changed.";
 
 		} else if(!empty($_POST['password'])) {
 			$password = $_POST['password'];
@@ -87,14 +87,17 @@ if ($user != "") {
 
 			$query = "UPDATE users SET password='$password' WHERE username='$user'";
 			$result = $connected->query($query);
-			echo "Your password has been changed";
+			$message = "Your password has been changed";
 		
-		} 
+		}
+		echo "<script type='text/javascript'>alert('$message');</script>"; 
 	} else if(!empty($_POST['delete-submit'])) {
 			$query = "DELETE FROM users WHERE username='$user'";
 			$result = $connected->query($query);
 			session_destroy();
-	}
+	} 
+	
+	
 } else { //user has not logged in
 	echo "Please log in to view your settings";
 }
