@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 
 include 'library.php';
 
@@ -86,8 +86,12 @@ if (!empty($_POST['signup-submit'])) {
     	$feedback = mysql_escape_string($feedback);
     	$query = "INSERT INTO users VALUES ('$username', '$password', '$email', '$feedback')"; 
 		$result = $connected->query($query) or die ("Invalid insert " . $connected->error); 
-		$message = "You have successfully created an account. Please log in now.";
+		$message = "You have successfully created an account. You are now logged in.";
 		//$message = $result;
+		$_SESSION['started'] = $username; 
+      	if ($username == "admin") {
+        	$_SESSION['started'] = "admin";
+      	}
     }
 
 	echo "<script type='text/javascript'>alert('$message');</script>";
